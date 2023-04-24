@@ -18,3 +18,20 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
     );
   })
   .catch((error) => console.error(error));
+
+//////////////////////////////////
+//////////////////////////////////
+console.clear()
+const takeName = 2;
+
+fetch(`https://pokeapi.co/api/v2/pokemon/` + takeName)
+  .then((response) => response.json())
+  .then((pokemon) => {
+    console.log(`ID: ${pokemon.id}`);
+    console.log(`Name: ${pokemon.name}`);
+    console.log(`Weight: ${pokemon.weight}`);
+    let habilidades = `Abilities: ${pokemon.abilities
+      .map((ability) => ability.ability.name)
+      .join(", ")}`;
+    console.log(habilidades);
+  });
